@@ -13,8 +13,8 @@ for folder in $FOLDERS
 do
     foldername=$(basename $folder)
     if [ "$direction" == "up" ]; then
-        echo "s3cmd sync $folder $BUCKET/$foldername/"
+        s3cmd sync "$folder" "$BUCKET/$foldername/"
     else
-        echo "s3cmd sync $BUCKET/$foldername $folder"
+        s3cmd sync "$BUCKET/$foldername" "$folder"
     fi
 done
